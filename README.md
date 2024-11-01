@@ -20,3 +20,15 @@ $ aws dynamodb create-table \
     --billing-mode PAY_PER_REQUEST \
     --endpoint-url http://localhost:7776
 ```
+
+### Check the behavior
+
+Assuming HTTPie is installed.
+
+```
+## (Posting an article)
+$ http POST localhost:8080/api/v1/articles articleTitle=title articleText=text
+
+## (Get articles)
+$ http localhost:8080/api/v1/articles
+```

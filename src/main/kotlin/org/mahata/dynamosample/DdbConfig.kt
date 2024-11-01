@@ -9,9 +9,9 @@ import software.amazon.awssdk.services.dynamodb.DynamoDbClient
 import java.net.URI
 
 @Configuration
-class DynamoDbConfig {
+class DdbConfig {
     @Bean
-    fun dynamoDbClient(): DynamoDbClient {
+    fun ddbClient(): DynamoDbClient {
         return DynamoDbClient
             .builder()
             .endpointOverride(URI.create("http://localhost:7776"))
@@ -20,11 +20,11 @@ class DynamoDbConfig {
     }
 
     @Bean
-    fun dynamoDbEnhancedClient(
-        @Qualifier("dynamoDbClient") dynamoDbClient: DynamoDbClient,
+    fun ddbEnhancedClient(
+        @Qualifier("ddbClient") ddbClient: DynamoDbClient,
     ): DynamoDbEnhancedClient {
         return DynamoDbEnhancedClient.builder()
-            .dynamoDbClient(dynamoDbClient)
+            .dynamoDbClient(ddbClient)
             .build()
     }
 }

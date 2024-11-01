@@ -8,7 +8,7 @@ import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient
 
 @SpringBootTest
-class DynamoDbConfigTest {
+class DdbConfigTest {
     @Autowired
     private lateinit var dynamoDbClient: DynamoDbClient
 

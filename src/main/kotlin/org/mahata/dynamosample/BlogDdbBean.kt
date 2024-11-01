@@ -7,17 +7,15 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSortK
 import java.time.Instant
 
 @DynamoDbBean
-data class BlogDynamoDbBean(
+data class BlogDdbBean(
     @get:DynamoDbPartitionKey
     @get:DynamoDbAttribute("uname")
     var uname: String = "",
     @get:DynamoDbSortKey
     @get:DynamoDbAttribute("createdAt")
-    var createdAt: Instant = Instant.now(),
+    var createdAt: Long = Instant.now().epochSecond,
     @get:DynamoDbAttribute("articleTitle")
     var articleTitle: String = "",
     @get:DynamoDbAttribute("articleText")
     var articleText: String = "",
-    @get:DynamoDbAttribute("modifiedAt")
-    var modifiedAt: Instant = Instant.now(),
 )
